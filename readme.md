@@ -10,16 +10,20 @@ I'll write down the versions and configurations that I usually use.
 > IDE: Intellij
 
 > JDK: 11.0.17
-<p>I can configure jdk that execute in project in intellij</p>
 
 > Scala: 2.12.10
 
 > Spark Version: 3.1.2
 
+<h4>Explanations:</h4>
+<p>Spark is compatible with JDK 8.x, 11.x, 17.x similar with others frameworks like PlayFramework and not every Spark version is compatible with every Scala version, in this case Spark 3.1.2 is compatible with Scala 2.12.10.
+About jdk exist most ways of control this, on intellij creating project you can change the jdk version 
+</p>
+
 <h2 align="center">build.sbt</h2>
 
 ```
-ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / version := "0.0.0-YOUR_VERSION"
 
 ThisBuild / scalaVersion := "2.12.10"
 
@@ -27,7 +31,8 @@ val sparkVersion = "3.1.2"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "spark-config-default"
+    name := "YOUR_PROJECT_NAME"
+    //You can write the dependencies here too
   )
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
