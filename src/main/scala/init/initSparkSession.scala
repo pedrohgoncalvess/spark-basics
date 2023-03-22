@@ -12,10 +12,10 @@ object initSparkSession extends App {
     ss
   }
 
-  def readCSVFile(path:String) = {
+  def basicReadCSVFile(pathArq:String): Unit = {
     val ss: SparkSession = createSparkSession
 
-    val dataRDD = ss.sparkContext.textFile(path)
+    val dataRDD = ss.sparkContext.textFile(pathArq)
 
     val header = dataRDD.first() //HEADER OF DATASET
     val csvRDDWithoutHeader = dataRDD.filter(_ != header) //REMOVE HEADER
@@ -27,7 +27,11 @@ object initSparkSession extends App {
     val separetColumns = csvRDDWithoutHeader.map(line => {
       val colArray = line.split(",")
       Array(colArray(0),colArray(1),colArray(2)).mkString(":") //mkString == separator value
-    }).take(10).foreach(println)
+    })
+
+    separetColumns.take(10).foreach(println)
+
+    separetColumns.saveAsTextFile("saveFolder\\FolderTest")
   }
-  readCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
+  basicReadCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
 }
