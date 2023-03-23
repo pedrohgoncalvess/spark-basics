@@ -33,5 +33,25 @@ object initSparkSession extends App {
 
     separetColumns.saveAsTextFile("saveFolder\\FolderTest")
   }
-  basicReadCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
+  def multiplesSparkSession: Unit = {
+      val ss1 = SparkSession.builder()
+        .master("local")
+        .appName("Creating Multiple Spark Session")
+        .getOrCreate()
+
+    val ss2 = SparkSession.builder()
+      .master("local")
+      .appName("Creating Multiple Spark Session")
+      .getOrCreate()
+
+    val rdd1 = ss1.sparkContext.parallelize(Array(1,2,3,4,5,6,7,8,9))
+    val rdd2 = ss2.sparkContext.parallelize(Array(1,2,3,4,5,6,7,8,9))
+
+    rdd1.collect().foreach(println)
+    rdd2.collect().foreach(println)
+  }
+
+
+  multiplesSparkSession //check trello data-engineer-studies
+  //basicReadCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
 }
