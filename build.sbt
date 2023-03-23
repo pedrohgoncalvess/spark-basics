@@ -12,3 +12,4 @@ lazy val root = (project in file("."))
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-hive" % sparkVersion
+libraryDependencies += "com.databricks" %% "spark-csv" % "1.5.0"
