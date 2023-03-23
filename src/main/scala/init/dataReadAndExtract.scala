@@ -1,8 +1,8 @@
 package init
 
 import init.initSparkSession.createSparkSession
-import org.apache.spark.sql.SparkSession
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
 
 object dataReadAndExtract extends App{
 
@@ -28,5 +28,6 @@ object dataReadAndExtract extends App{
     dataRDD.saveAsTextFile(s"$pathSave/$nameFolder") //METHOD FOR SAVE RDD TEXT FILE FORMAT
 
   }
-  saveTextFile(dataRDD = readCSVFileForSave("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv"))
+
+  //saveTextFile(dataRDD = readCSVFileForSave("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv"))
 }

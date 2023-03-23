@@ -31,8 +31,10 @@ object initSparkSession extends App {
 
     separetColumns.take(10).foreach(println)
 
-    separetColumns.saveAsTextFile("saveFolder\\FolderTest")
+    println(s"Total number of rows: ${dataRDD.count()}")
   }
+
+
   def multiplesSparkSession: Unit = {
       val ss1 = SparkSession.builder()
         .master("local")
@@ -52,6 +54,6 @@ object initSparkSession extends App {
   }
 
 
-  multiplesSparkSession //check trello data-engineer-studies
-  //basicReadCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
+  //multiplesSparkSession
+  basicReadCSVFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
 }
