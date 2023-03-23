@@ -15,10 +15,15 @@ I'll write down the versions and configurations that I usually use.
 
 > Spark Version: 3.1.2
 
+> Hadoop: 2.7.2 
+
 <h4>Explanations:</h4>
 <p>Spark is compatible with JDK 8.x, 11.x, 17.x similar with others frameworks like PlayFramework and not every Spark version is compatible with every Scala version, in this case Spark 3.1.2 is compatible with Scala 2.12.10.
 About jdk exist most ways of control this, on intellij creating project you can change the jdk version 
 </p>
+<hr>
+<p>For Hadoop works in/with Spark you need to create the environment variable. For make this, you need to create new path with name "HADOOP_HOME" and value with path of hadoop directory <b>WITHOUT</b> \bin, after this you need to edit Path and add new value with <b>"%HADOOP_HOME%\bin</b></p>
+
 
 <h2 align="center">build.sbt</h2>
 
@@ -39,4 +44,5 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion
 libraryDependencies += "org.apache.spark" %% "spark-hive" % sparkVersion
 ```
+<hr></hr>
 <p>You can add more dependencies. If it is another spark then use sparkVersion variable to specify the version</p>
