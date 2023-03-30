@@ -16,7 +16,7 @@ object parquetFiles extends App{
       case "text" => ss.read.text(pathArq)
       case _ => ss.read.csv(pathArq)
     }
-  } //this function works with any file formats
+  } //this function works with csv, json, parquet e text
 
   def saveParquetFile(pathSave: String = "C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\saveFiles",
                       dataSet: sql.DataFrame,
@@ -33,10 +33,10 @@ object parquetFiles extends App{
     val rowsData = parquetData.count()
     parquetData.show(15)
     parquetData.columns.foreach(println)
+    parquetData.describe().show() //math stats per column of dataframe
     println(s"Total rows number is: $rowsData")
   }
   //saveParquetFile("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\saveFiles\\", //call function to extract the dataframe
     //transformFileSQLDataFrame("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")) //pass other function with return is SQL Dataframe
   readParquetFile()
-
 }

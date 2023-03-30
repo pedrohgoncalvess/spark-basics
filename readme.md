@@ -46,3 +46,21 @@ libraryDependencies += "org.apache.spark" %% "spark-hive" % sparkVersion
 ```
 <hr></hr>
 <p>You can add more dependencies. If it is another spark then use sparkVersion variable to specify the version</p>
+
+<h2 align='center'>Dataset</h2>
+<p>I used a public dataset that contains popularity and other informations of music in spotify. 
+Available in Kaggle (excelent platform for learn data sci/data eng). Link below</p>
+
+>Number of rows is 26,173,515 (26 million).
+
+> Archive size is.
+
+- Unzipped 3,401,833 KB (3.4 GB).
+
+- Zipped 967.994 KB (967 MB).
+
+<div align="center">
+
+[charts.csv / Kaggle](https://www.kaggle.com/datasets/dhruvildave/spotify-charts)
+
+</div>

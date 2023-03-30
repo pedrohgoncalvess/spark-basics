@@ -34,6 +34,7 @@ object dataFrameBasics extends App{
       .csv("C:\\Users\\Pedro\\Desktop\\WorkSpace\\Scala\\Datasets\\charts.csv")
     df.printSchema()
     df.show(15)
+
   }
   //creatingDataFrameSpark
   dataFrameReadingCSV
